@@ -27,7 +27,7 @@ jobs:
       rm build-wrapper-win-x86 -Force -ErrorAction SilentlyContinue
       $path = ".\build-wrapper-win-x86.zip"
       [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-      (New-Object System.Net.WebClient).DownloadFile("${SONAR_URL}/static/cpp/build-wrapper-win-x86.zip", $path)
+      (New-Object System.Net.WebClient).DownloadFile("https://peach.sonarsource.com/static/cpp/build-wrapper-win-x86.zip", $path)
       Add-Type -AssemblyName System.IO.Compression.FileSystem
       [System.IO.Compression.ZipFile]::ExtractToDirectory($path, ".")
       del $path
